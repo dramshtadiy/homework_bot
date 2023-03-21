@@ -90,12 +90,12 @@ def parse_status(homework):
     """Извлекает cтатус домашки."""
     homework_name = homework.get('homework_name')
     if not homework_name:
-        raise KeyError(f'Нету домашки: {homework_name}')
+        raise KeyError(f'Отсутствует или пустое поле: {homework_name}')
     homework_status = homework.get('status')
     if homework_status not in HOMEWORK_VERDICTS:
-        raise KeyError(f'что-то сломалось: {homework_status}')
+        raise KeyError(f'Неизвестный статус: {homework_status}')
     verdict = HOMEWORK_VERDICTS.get(homework_status)
-    return f'Статус домашки изменился "{homework_name}". {verdict}'
+    return f'Изменился статус проверки работы "{homework_name}". {verdict}'
 
 
 def main():
